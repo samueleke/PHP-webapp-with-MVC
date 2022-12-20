@@ -36,7 +36,7 @@ class LoginController
 
             $user = $this->login_helper->verifyUser($user_name, $password);
             if (!$user) {
-                echo "Helytelen jelszo!";
+                echo "Helytelen jelszó!";
             } else {
                 setcookie('csapatNev', $user->get_username(), time() + 3600);
                 if ($user_name == "admin") {
@@ -67,10 +67,10 @@ class LoginController
                 $updatedPassword = $this->login_helper->updatePassword($email, $newPassword);
 
                 if (empty($updatedPassword)) {
-                    $this->student_helper->sendEmail($email, "Elfelejtett jelszo", "Az on uj jelszava: $newPassword");
+                    $this->student_helper->sendEmail($email, "Elfelejtett jelszó", "Az Ön új jelszava: $newPassword");
                     $emails = $this->login_helper->getEmails($email);
                     foreach ($emails as $mail) {
-                        $this->student_helper->sendEmail($mail["EmailCim"], "Elfelejtett jelszo", "Az on uj jelszava: $newPassword");
+                        $this->student_helper->sendEmail($mail["EmailCim"], "Elfelejtett jelszó", "Az Ön új jelszava: $newPassword");
                     }
                 }
             }

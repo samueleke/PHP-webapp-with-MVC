@@ -28,7 +28,7 @@ $(document).ready(function () {
         $.post('/register', obj, function (data) {
             console.log(data);
             if (data == "" || data.startsWith("<!DOCTYPE html>")) {
-                $("#form-message").html("Sikeres csapat regisztracio!");
+                $("#form-message").html("Sikeres csapat regisztració!");
                 location.href = "/login";
             } else {
                 $("#form-message").html(data);

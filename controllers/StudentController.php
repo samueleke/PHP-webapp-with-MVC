@@ -50,7 +50,7 @@ class StudentController
 
             // var_dump($user_count["COUNT(*)"]);
             if ($user_count["COUNT(*)"] == 3) {
-                echo "A csapat megtelt mar!";
+                echo "A csapat megtelt!";
                 setcookie("diakSzam",true, time() + 3600);
                
             } else {
@@ -65,10 +65,10 @@ class StudentController
                         date('Y'),
                         $csapatNev
                     );
-                    $message = "Sikeresen regisztraltal a " . $csapatNev . " nevu csoportba!";
+                    $message = "Sikeresen regisztráltál a " . $csapatNev . " nevű csoportba!";
                     $this->student_helper->sendEmail($email,'',$message);
                 }else{
-                    echo "Diak mar letezik!";
+                    echo "Diák már letezik!";
                 }            
             }
         } else {

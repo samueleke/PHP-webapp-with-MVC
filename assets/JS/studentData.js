@@ -10,7 +10,7 @@ $(document).ready(function(){
             function (data,stat,request) {
                 console.log(data);
                 if (data == "" || data.startsWith("<!DOCTYPE html>")){
-                    $("#form-message").html("Sikeres diak regisztracio!");
+                    $("#form-message").html("Sikeres diák regisztració!");
 
                 }else{
                     $("#form-message").html(data);

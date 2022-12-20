@@ -51,14 +51,14 @@ class SignupController
                 if (!$user_count) {
                     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                     $res = $this->signup_helper->addTeacher($email, $tel_num, $v_nev, $k_nev, $csapat_nev, $hashedPassword);
-                    $message = "Sikeresen regisztraltad a " . $csapat_nev . " nevu csapatot!";
+                    $message = "Sikeresen regisztráltad a " . $csapat_nev . " nevű csapatot!";
                     $this->student_helper->sendEmail($email, '', $message);
                     if (empty($res[0])) {
                         header("Location: /login");
                         exit();
                     }
                 } else {
-                    echo "Csapat mar letezik!";
+                    echo "Csapat már létezik!";
                 }
             } else {
                 if(!$passwordMatch){
