@@ -51,9 +51,21 @@ class RoutingController
                 self::$login_controller->resetPassword();
                 break;
             case 'admin':
+                if (!isset($_COOKIE["csapatNev"])) {
+                    session_destroy();
+                    header("Location: /login");
+                    exit();
+                }
                 self:: $admin_controller= new AdminController();
                 self:: $admin_controller->view();
                 break;
+
+            case 'kutv':
+                self::$student_controller = new StudentController();
+                self::$school_controller = new SchoolController();
+                self:: $student_controller->view();
+                break;
+
             case 'student':
                 //  || !isset($_SESSION["csapatNev"])
                 // var_dump($_COOKIE);
